@@ -40,6 +40,7 @@ gapminder %>%
   filter(lifeExp < CUT_OFF) %>% 
   ggplot(aes(year, lifeExp)) + geom_point()
 ```
+
 Count exact number of such countires. Clearly it is decreasing.
 ```{r}
 gapminder %>%
