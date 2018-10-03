@@ -32,6 +32,7 @@ Change of lifeExp over years for each continent
 yvsl = ggplot(gapminder, aes(year,lifeExp))
 yvsl + geom_point() + facet_wrap(~continent)
 ```
+
 Scatterplot of countries with low lifeExp. By low lifeExp I mean lifeExp < 40
 ```{r}
 CUT_OFF = 40
