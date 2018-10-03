@@ -1,10 +1,10 @@
 ---
 title: "hw03"
-output: html_document
+output: github_document
 ---
 
 ```{r}
-require(gapminder)
+suppressPackageStartupMessages(require(gapminder))
 head(gapminder)
 ```
 Maximum gpd per capita for all continents
@@ -13,8 +13,8 @@ range(gapminder$gdpPercap)
 ```
 Spread of gdp per capita within continents
 ```{r}
-require(tidyverse)
-require(dplyr)
+suppressPackageStartupMessages(require(tidyverse))
+suppressPackageStartupMessages(require(dplyr))
 for (cont in unique(gapminder$continent)) {
   print(paste(cont," has min and max",toString(range(filter(gapminder,continent==cont)$gdpPercap))))
 }
@@ -39,5 +39,9 @@ gapminder %>%
   filter(lifeExp < CUT_OFF) %>% 
   ggplot(aes(year, lifeExp)) + geom_point()
 ```
+Story: 
+Find out the countries and years when gdp drops sharply, and look at whether lifeExp also drops correspondingly
+
+
 
 
