@@ -51,7 +51,5 @@ gapminder %>%
 ```
 
 Story: 
-Find out the count countries when gdp drops sharply, and visualize by year. Search what happened in those years. For example, was there a war at that time?
-
-
+Find out the count countries when gdp drops sharply, and visualize by year. Search what happened in those years. For example, was there a war/famine/revolution at that time?
 
