@@ -1,0 +1,43 @@
+---
+title: "hw03"
+output: html_document
+---
+
+```{r}
+require(gapminder)
+head(gapminder)
+```
+Maximum gpd per capita for all continents
+```{r}
+range(gapminder$gdpPercap)
+```
+Spread of gdp per capita within continents
+```{r}
+require(tidyverse)
+require(dplyr)
+for (cont in unique(gapminder$continent)) {
+  print(paste(cont," has min and max",toString(range(filter(gapminder,continent==cont)$gdpPercap))))
+}
+```
+Life Expectancy weighted by population
+```{r}
+print(paste("lifeExp weigthed by pop is",mean(gapminder$lifeExp*gapminder$pop)))
+```
+Mean lifeExp at 1995 is
+```{r}
+print(paste("mean lifeExp in 1952 is",mean(filter(gapminder,year==1952)$lifeExp)))
+```
+Change of lifeExp over years for each continent
+```{r}
+yvsl = ggplot(gapminder, aes(year,lifeExp))
+yvsl + geom_point() + facet_wrap(~continent)
+```
+Scatterplot of countries with low lifeExp. By low lifeExp I mean lifeExp < 40
+```{r}
+CUT_OFF = 40
+gapminder %>% 
+  filter(lifeExp < CUT_OFF) %>% 
+  ggplot(aes(year, lifeExp)) + geom_point()
+```
+
+
