@@ -39,9 +39,17 @@ gapminder %>%
   filter(lifeExp < CUT_OFF) %>% 
   ggplot(aes(year, lifeExp)) + geom_point()
 ```
-Story: 
-Find out the countries and years when gdp drops sharply, and look at whether lifeExp also drops correspondingly
+Count exact number of such countires. Clearly it is decreasing.
+```{r}
+gapminder %>%
+  filter(lifeExp < CUT_OFF) %>%
+  group_by(year) %>%
+  tally() %>% 
+  ggplot(aes(x = year, y = n)) + geom_line()
+```
 
+Story: 
+Find out the count countries when gdp drops sharply, and visualize by year. Search what happened in those years. For example, was there a war at that time?
 
 
 
